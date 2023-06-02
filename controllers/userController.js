@@ -62,9 +62,9 @@ module.exports = {
   deleteFriend(req, res) {
     User.findOneAndUpdate({ _id: req.params.userId })
         .then((user) =>
-        !user
-        ? res.status(404).json({ message: 'No user with that ID' })
-        : res.json(user)
+          !user
+            ? res.status(404).json({ message: 'No user with that ID' })
+            : res.json(user)
         )
         .then(() => res.json({ message: 'User and associated apps deleted!' }))
         .catch((err) => res.status(500).json(err));
